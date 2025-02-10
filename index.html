@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine’s Message</title><style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+        .login-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .video-container {
+            display: none;
+            text-align: center;
+            width: 75%; /* Set the container width to 75% of the screen */
+            max-width: 100%; /* Ensure it doesn't overflow */
+        }
+        video {
+            width: 100%; /* Make the video fill the container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Optional: Add rounded corners */
+        }
+        input[type="password"] {
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4c4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Enter Password</h2>
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkPassword()">Login</button>
+        <p id="error" style="color: red;"></p>
+    </div>
+    <div class="video-container">
+        <video controls autoplay>
+            <source src="vday1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        const correctPassword = "always"; // Set your desired password
+        document.querySelector('.login-form').style.display = 'block';
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('password').value;
+            if (passwordInput === correctPassword) {
+                document.querySelector('.login-form').style.display = 'none';
+                document.querySelector('.video-container').style.display = 'block';
+            } else {
+                document.getElementById('error').innerText = "Incorrect Password!";
+            }
+        }
+    </script>
+</body>
+</html>
